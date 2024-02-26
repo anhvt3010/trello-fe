@@ -20,8 +20,7 @@ function ModeToggle() {
 function App() {
   return (
     <>
-      <ModeToggle />
-      <hr />
+      Mode
     </>
   )
 }

@@ -7,6 +7,7 @@ const theme = extendTheme({
       palette: {
         primary: teal,
         secondary: deepOrange
+        }
       }
     },
     dark: {
@@ -16,6 +17,6 @@ const theme = extendTheme({
       }
     }
   }
-})
+)
 
 export default theme
