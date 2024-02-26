@@ -7,7 +7,6 @@ import Select from '@mui/material/Select'
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import SettingsSystemDaydreamIcon from '@mui/icons-material/SettingsSystemDaydream';
-import Box from '@mui/material/Box';
 
 import {
   Button,
@@ -34,19 +33,13 @@ function ModeSelect() {
         onChange={handleChange}
       >
         <MenuItem value="light">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <LightModeIcon fontSize='small' /> Light
-          </div>
+          <LightModeIcon si /> Light
         </MenuItem>
         <MenuItem value="dark">
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <DarkModeIcon fontSize='small' /> Dark
-          </Box>
+          <DarkModeIcon /> Dark
         </MenuItem>
         <MenuItem value="system">
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <SettingsSystemDaydreamIcon fontSize='small' /> System
-          </Box>
+          <SettingsSystemDaydreamIcon /> System
         </MenuItem>
       </Select>
     </FormControl>
