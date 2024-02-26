@@ -34,19 +34,16 @@ function ModeSelect() {
         onChange={handleChange}
       >
         <MenuItem value="light">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
             <LightModeIcon fontSize='small' /> Light
           </div>
         </MenuItem>
         <MenuItem value="dark">
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <DarkModeIcon fontSize='small' /> Dark
-          </Box>
+          <Bp
+          <DarkModeIcon fontSize='small' /> Dark
         </MenuItem>
         <MenuItem value="system">
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <SettingsSystemDaydreamIcon fontSize='small' /> System
-          </Box>
+          <SettingsSystemDaydreamIcon fontSize='small' /> System
         </MenuItem>
       </Select>
     </FormControl>

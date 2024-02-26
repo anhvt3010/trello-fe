@@ -44,9 +44,10 @@ function ModeSelect() {
           </Box>
         </MenuItem>
         <MenuItem value="system">
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <SettingsSystemDaydreamIcon fontSize='small' /> System
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            <DarkModeIcon fontSize='small' /> Dark
           </Box>
+          <SettingsSystemDaydreamIcon fontSize='small' /> System
         </MenuItem>
       </Select>
     </FormControl>
