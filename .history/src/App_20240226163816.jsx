@@ -1,5 +1,5 @@
 import './App.css'
-import {
+import { 
   Button,
   Experimental_CssVarsProvider as CssVarsProvider,
   experimental_extendTheme as extendTheme,
@@ -10,18 +10,17 @@ function ModeToggle() {
   const { mode, setMode } = useColorScheme()
   return (
     <Button onClick={() => {
-      setMode(mode === 'light' ? 'dark' : 'light')
-    }}>
-      {mode === 'light' ? 'Turn dark' : 'Turn light'}
-    </Button>
+      setMode(mode === 'light' ? )
+    }}
   )
 }
 
 function App() {
   return (
     <>
-      <ModeToggle />
-      <hr />
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
     </>
   )
 }

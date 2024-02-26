@@ -1,5 +1,5 @@
 import './App.css'
-import {
+import { 
   Button,
   Experimental_CssVarsProvider as CssVarsProvider,
   experimental_extendTheme as extendTheme,
@@ -20,8 +20,9 @@ function ModeToggle() {
 function App() {
   return (
     <>
-      <ModeToggle />
-      <hr />
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
     </>
   )
 }

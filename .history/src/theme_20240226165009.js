@@ -5,14 +5,17 @@ const theme = extendTheme({
   colorSchemes: {
     light: {
       palette: {
-        primary: teal,
-        secondary: deepOrange
+        primary: {
+          primary: teal,
+          se
+        }
       }
     },
     dark: {
       palette: {
-        primary: cyan,
-        secondary: orange
+        primary: {
+          main: '#000'
+        }
       }
     }
   }
