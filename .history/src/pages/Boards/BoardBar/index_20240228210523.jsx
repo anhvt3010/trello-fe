@@ -5,7 +5,6 @@ import VpnLockIcon from '@mui/icons-material/VpnLock'
 import AddToDriveIcon from '@mui/icons-material/AddToDrive'
 import BoltIcon from '@mui/icons-material/Bolt'
 import FilterListIcon from '@mui/icons-material/FilterList'
-import PersonAddIcon from '@mui/icons-material/PersonAdd'
 
 const MENU_STYLE = {
   color: 'primary.main',
@@ -67,7 +66,7 @@ function BoardBar() {
           clickable />
       </Box>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-        <Button variant="outlined" startIcon={<PersonAddIcon />}>Invite</Button>
+        <Button variant="outlined" startIcon>Invite</Button>
 
         <AvatarGroup total={24} max={4}
           sx={{
