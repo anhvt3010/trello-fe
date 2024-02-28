@@ -21,8 +21,7 @@ function AppBar() {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
-      gap: 2,
-      overflowX: 'auto'
+      gap: 2
     }}>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
         <AppsIcon sx={{ color: 'primary.main' }} />
@@ -45,8 +44,9 @@ function AppBar() {
       </Box>
 
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-        <TextField
-          sx={{ minWidth: 120 }}
+        <TextField 
+          sx={{min\
+          }} 
           id="outlined-basic" label="Search" variant="outlined" type='search' size='small' />
 
         <ModeSelect />

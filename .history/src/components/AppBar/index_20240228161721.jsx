@@ -20,9 +20,7 @@ function AppBar() {
       height: (theme) => theme.trello.appBarHeight,
       display: 'flex',
       alignItems: 'center',
-      justifyContent: 'space-between',
-      gap: 2,
-      overflowX: 'auto'
+      justifyContent: 'space-between'
     }}>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
         <AppsIcon sx={{ color: 'primary.main' }} />
@@ -34,7 +32,7 @@ function AppBar() {
           </Typography>
         </Box>
 
-        <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 1 }}>
+        <Box sx={{ display: { xs: 'none', md: 'flex' }, gap }}>
           <Workspaces />
           <Recent />
           <Started />
@@ -45,9 +43,7 @@ function AppBar() {
       </Box>
 
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-        <TextField
-          sx={{ minWidth: 120 }}
-          id="outlined-basic" label="Search" variant="outlined" type='search' size='small' />
+        <TextField id="outlined-basic" label="Search" variant="outlined" type='search' size='small' />
 
         <ModeSelect />
 

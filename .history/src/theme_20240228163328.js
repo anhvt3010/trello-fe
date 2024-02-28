@@ -29,11 +29,8 @@ const theme = extendTheme({
             height: '8px'
           },
           '*::-webkit-scrollbar-thumb': {
-            backgroundColor: '#bdc3c7',
+            backgroundColor: 'red',
             borderRadius: '8px'
-          },
-          '*::-webkit-scrollbar-thumb:hover': {
-            backgroundColor: '#00b894'
           }
         }
       }
