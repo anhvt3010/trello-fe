@@ -67,7 +67,7 @@ function BoardBar() {
           clickable />
       </Box>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-        <Button variant="outlined" startIcon={<PersonAddIcon />}>Invite</Button>
+        <Button variant="outlined" startIcon={ }>Invite</Button>
 
         <AvatarGroup total={24} max={4}
           sx={{

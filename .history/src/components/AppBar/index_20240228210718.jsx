@@ -41,7 +41,7 @@ function AppBar() {
           <Recent />
           <Started />
           <Templates />
-          <Button variant="outlined" startIcon={<LibraryAddIcon />}>Create</Button>
+          <Button variant="outlined" startIcon={ }>Create</Button>
         </Box>
 
       </Box>
