@@ -28,14 +28,6 @@ const theme = extendTheme({
         }
       }
     },
-    MuiInputLabel: {
-      styleOverrides: {
-        root: ({ theme }) => ({
-          color: theme.palette.primary.main,
-          fontSize: '0.875rem'
-        })
-      }
-    },
     MuiOutlinedInput: {
       styleOverrides: {
         root: ({ theme }) => ({
@@ -48,10 +40,6 @@ const theme = extendTheme({
             '.MuiOutlinedInput-notchedOutline': {
               borderColor: theme.palette.primary.main
             }
-          },
-          // config focus to bold input
-          '& fieldset': {
-            borderWidth: '1px !important'
           }
         })
       }

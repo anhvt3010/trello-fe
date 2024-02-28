@@ -30,9 +30,9 @@ const theme = extendTheme({
     },
     MuiInputLabel: {
       styleOverrides: {
-        root: ({ theme }) => ({
+        root: (theme) => ({
           color: theme.palette.primary.main,
-          fontSize: '0.875rem'
+          font
         })
       }
     },

@@ -28,12 +28,11 @@ const theme = extendTheme({
         }
       }
     },
-    MuiInputLabel: {
+    Mui: {
       styleOverrides: {
-        root: ({ theme }) => ({
-          color: theme.palette.primary.main,
-          fontSize: '0.875rem'
-        })
+        root: {
+          textTransform: 'none'
+        }
       }
     },
     MuiOutlinedInput: {
