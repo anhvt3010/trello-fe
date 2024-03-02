@@ -11,12 +11,11 @@ import { CSS } from '@dnd-kit/utilities'
 function Column({ column }) {
   // drag and drop
   const { attributes, listeners, setNodeRef, transform, transition } = useSortable({
-    id: column._id,
+    id: column.,
     data: { ...column }
   })
-  const dndKitColumnStyles = {
-    // sử dụng CSS.Transform như trong doc sẽ bị lỗi stretch
-    transform: CSS.Translate.toString(transform),
+  const dndKitColumnStyle = {
+    transform: CSS.Transform.toString(transform),
     transition
   }
 
@@ -30,7 +29,7 @@ function Column({ column }) {
   return (
     <Box
       ref={setNodeRef}
-      style={dndKitColumnStyles}
+      style={dndKitColumnStyle}
       {...attributes}
       {...listeners}
       sx={{

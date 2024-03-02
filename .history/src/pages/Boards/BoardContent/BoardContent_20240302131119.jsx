@@ -7,7 +7,7 @@ function BoardContent({ board }) {
   const orderedColumn = mapOrder(board?.columns, board?.columnOrderIds, '_id')
 
   const handleDragEnd = (event) => {
-    
+    console.log('ahihih')
   }
 
   return (

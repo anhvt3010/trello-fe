@@ -6,12 +6,7 @@ import { DndContext } from '@dnd-kit/core'
 function BoardContent({ board }) {
   const orderedColumn = mapOrder(board?.columns, board?.columnOrderIds, '_id')
 
-  const handleDragEnd = (event) => {
-    
-  }
-
-  return (
-    <DndContext onDragEnd={handleDragEnd}>
+  return (E}>
       <Box sx={{
         bgcolor: (theme) => (theme.palette.mode === 'dark' ? '#34495e' : '#1976d2'),
         width: '100%',

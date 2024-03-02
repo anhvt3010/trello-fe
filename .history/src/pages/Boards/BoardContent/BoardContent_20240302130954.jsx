@@ -7,20 +7,20 @@ function BoardContent({ board }) {
   const orderedColumn = mapOrder(board?.columns, board?.columnOrderIds, '_id')
 
   const handleDragEnd = (event) => {
-    
+    console.log('ahihih');
   }
 
   return (
-    <DndContext onDragEnd={handleDragEnd}>
-      <Box sx={{
-        bgcolor: (theme) => (theme.palette.mode === 'dark' ? '#34495e' : '#1976d2'),
-        width: '100%',
-        height: (theme) => theme.trello.boardContentHeight,
-        p: '10px 0'
-      }}>
-        <ListColumns columns={orderedColumn} />
-      </Box>
-    </DndContext>
+    // <DndContext onDragEnd={handleDragEnd}>
+    <Box sx={{
+      bgcolor: (theme) => (theme.palette.mode === 'dark' ? '#34495e' : '#1976d2'),
+      width: '100%',
+      height: (theme) => theme.trello.boardContentHeight,
+      p: '10px 0'
+    }}>
+      <ListColumns columns={orderedColumn} />
+    </Box>
+    // </DndContext>
   )
 }
 

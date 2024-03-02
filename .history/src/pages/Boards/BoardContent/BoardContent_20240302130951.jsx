@@ -7,11 +7,11 @@ function BoardContent({ board }) {
   const orderedColumn = mapOrder(board?.columns, board?.columnOrderIds, '_id')
 
   const handleDragEnd = (event) => {
-    
+    console.log('ahihih');
   }
 
   return (
-    <DndContext onDragEnd={handleDragEnd}>
+    // <DndContext onDragEnd={handleDragEnd}>
       <Box sx={{
         bgcolor: (theme) => (theme.palette.mode === 'dark' ? '#34495e' : '#1976d2'),
         width: '100%',

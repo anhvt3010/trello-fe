@@ -14,9 +14,8 @@ function Column({ column }) {
     id: column._id,
     data: { ...column }
   })
-  const dndKitColumnStyles = {
-    // sử dụng CSS.Transform như trong doc sẽ bị lỗi stretch
-    transform: CSS.Translate.toString(transform),
+  const dndKitColumnStyle = {
+    transform: CSS.Transform.toString(transform),
     transition
   }
 
@@ -30,9 +29,7 @@ function Column({ column }) {
   return (
     <Box
       ref={setNodeRef}
-      style={dndKitColumnStyles}
-      {...attributes}
-      {...listeners}
+      style={dndKitColumnStyle}
       sx={{
         minWidth: '300px',
         maxWidth: '300px',

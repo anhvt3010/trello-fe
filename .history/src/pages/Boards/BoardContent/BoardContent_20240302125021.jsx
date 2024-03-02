@@ -6,10 +6,6 @@ import { DndContext } from '@dnd-kit/core'
 function BoardContent({ board }) {
   const orderedColumn = mapOrder(board?.columns, board?.columnOrderIds, '_id')
 
-  const handleDragEnd = (event) => {
-    
-  }
-
   return (
     <DndContext onDragEnd={handleDragEnd}>
       <Box sx={{
