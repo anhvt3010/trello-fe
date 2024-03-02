@@ -1,32 +1,12 @@
 import Box from '@mui/material/Box'
 import ListColumns from './ListColumns/ListColumns'
 import { mapOrder } from '~/utils/sorts'
-import { DndContext, MouseSensor, PointerSensor, TouchSensor, useSensor, useSensors } from '@dnd-kit/core'
+import { DndContext } from '@dnd-kit/core'
 import { useEffect, useState } from 'react'
 import { arrayMove } from '@dnd-kit/sortable'
 
 function BoardContent({ board }) {
-  const pointerSensor = useSensor(PointerSensor, {
-    activationConstraint: { distance: 10 }
-  })
-
-  // con chuột di chuyển 10px để kích hoạt event, tránh click => kích hoạt
-  const mouseSensor = useSensor(MouseSensor, {
-    activationConstraint: { distance: 10 }
-  })
-  // nhấn giữ 250ms
-  // tolerance là dung sai của cảm ứng (tay, bút cảm ứng, ... => khác nhau)
-  const touchSensor = useSensor(TouchSensor, {
-    activationConstraint: {
-      delay: 250,
-      tolerance: 5
-    }
-  })
-
-  // const sensors = useSensors(pointerSensor)
-  // ưu tiên sử dụng, tránh bug trên mobile khi cảm ứng chạm
-  const sensors = useSensors(mouseSensor, touchSensor)
-
+  const pointerSensor = use
   const [orderedColumns, setOrderedColumns] = useState([])
 
   useEffect(() => {
@@ -54,7 +34,7 @@ function BoardContent({ board }) {
   }
 
   return (
-    <DndContext onDragEnd={handleDragEnd} sensors={sensors}>
+    <DndContext onDragEnd={handleDragEnd}>
       <Box sx={{
         bgcolor: (theme) => (theme.palette.mode === 'dark' ? '#34495e' : '#1976d2'),
         width: '100%',

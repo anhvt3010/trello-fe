@@ -15,7 +15,6 @@ function Column({ column }) {
     data: { ...column }
   })
   const dndKitColumnStyles = {
-    // touchAction: 'none',
     // sử dụng CSS.Transform như trong doc sẽ bị lỗi stretch
     transform: CSS.Translate.toString(transform),
     transition

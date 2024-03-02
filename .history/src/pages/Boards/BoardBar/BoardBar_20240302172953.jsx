@@ -98,10 +98,10 @@ function BoardBar({ board }) {
             <Avatar alt="anhvt" src="" />
           </Tooltip>
           <Tooltip title="anhvt">
-            <Avatar alt="anhvt" src="" />
+            <Avatar alt="anhvt" src="/static/images/avatar/2.jpg" />
           </Tooltip>
           <Tooltip title="anhvt">
-            <Avatar alt="anhvt" src="" />
+            <Avatar alt="anhvt" src="/static/images/avatar/3.jpg" />
           </Tooltip>
         </AvatarGroup>
       </Box>

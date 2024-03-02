@@ -15,7 +15,6 @@ function Column({ column }) {
     data: { ...column }
   })
   const dndKitColumnStyles = {
-    // touchAction: 'none',
     // sử dụng CSS.Transform như trong doc sẽ bị lỗi stretch
     transform: CSS.Translate.toString(transform),
     transition
@@ -92,7 +91,7 @@ function Column({ column }) {
             </MenuItem>
             <MenuItem>
               <ListItemIcon><ContentPaste fontSize="small" /></ListItemIcon>
-              <ListItemText>Paste</ListItemText>
+               <ListItemText>Paste</ListItemText>
             </MenuItem>
 
             <Divider />

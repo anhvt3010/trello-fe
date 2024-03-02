@@ -14,7 +14,7 @@ function BoardContent({ board }) {
   const mouseSensor = useSensor(MouseSensor, {
     activationConstraint: { distance: 10 }
   })
-  // nhấn giữ 250ms
+  // nhấn giữ 250ms và di chuyển lệch 5px để kích hoạt
   // tolerance là dung sai của cảm ứng (tay, bút cảm ứng, ... => khác nhau)
   const touchSensor = useSensor(TouchSensor, {
     activationConstraint: {

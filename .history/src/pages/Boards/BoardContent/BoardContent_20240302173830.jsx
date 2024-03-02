@@ -7,15 +7,14 @@ import { arrayMove } from '@dnd-kit/sortable'
 
 function BoardContent({ board }) {
   const pointerSensor = useSensor(PointerSensor, {
+    // con chuột di chuyển 10px để kích hoạt event, tránh click => kích hoạt
     activationConstraint: { distance: 10 }
   })
 
-  // con chuột di chuyển 10px để kích hoạt event, tránh click => kích hoạt
   const mouseSensor = useSensor(MouseSensor, {
     activationConstraint: { distance: 10 }
   })
-  // nhấn giữ 250ms
-  // tolerance là dung sai của cảm ứng (tay, bút cảm ứng, ... => khác nhau)
+
   const touchSensor = useSensor(TouchSensor, {
     activationConstraint: {
       delay: 250,
@@ -23,9 +22,7 @@ function BoardContent({ board }) {
     }
   })
 
-  // const sensors = useSensors(pointerSensor)
-  // ưu tiên sử dụng, tránh bug trên mobile khi cảm ứng chạm
-  const sensors = useSensors(mouseSensor, touchSensor)
+  const sensors = useSensors(pointerSensor)
 
   const [orderedColumns, setOrderedColumns] = useState([])
 
