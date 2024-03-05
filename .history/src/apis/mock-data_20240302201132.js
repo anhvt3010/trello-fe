@@ -19,7 +19,7 @@ export const mockData = {
             boardId: 'board-id-01',
             columnId: 'column-id-01',
             title: 'Title of card 01',
-            description: 'Dscription description description',
+            description: 'description',
             cover: '',
             memberIds: ['test-user-id-01'],
             comments: ['test comment 01', 'test comment 02'],
