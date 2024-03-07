@@ -9,8 +9,8 @@ export const capitalizeFirstLetter = (val) => {
 export const generatePlaceholderCard = (column => {
   return {
     _id: `${column._id}-placeholder-card`,
-    boardId: column.boardId,
-    columnId: column._id,
+    boardId: 'board-id-01',
+    columnId: 'column-id-03',
     FE_Placeholder: true
   }
 })

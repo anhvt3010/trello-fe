@@ -98,7 +98,7 @@ function BoardContent({ board }) {
         nextOverColumn.cards = nextOverColumn.cards.toSpliced(newCardIndex, 0, rebuild_activeDraggingCardData)
 
         // Xóa placeholder card khi column có card
-        nextOverColumn.cards = nextOverColumn.cards.filter(card => !card.FE_Placeholder)
+        nextOverColumn.cards
 
         // Cập nhật lại mảng cardOrderIds
         nextOverColumn.cardOrderIds = nextOverColumn.cards.map(card => card._id)
