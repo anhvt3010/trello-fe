@@ -55,7 +55,7 @@ function BoardContent({ board }) {
     over,
     activeColumn,
     activeDraggingCardId,
-    activeDraggingCardData
+    
   ) => {
     setOrderedColumns(prevColumns => {
       // Tìm vị trí index của cái overCard trong Column được kéo đến
@@ -132,15 +132,7 @@ function BoardContent({ board }) {
     // Xử lý khi kéo card qua 2 column khác nhau, nếu cùng 1 column thì không làm gì
     // Xử lý ở giai đoạn handleDragOver
     if (activeColumn._id !== overColumn._id) {
-      moveCardBetweenDifferentColumns(
-        overColumn,
-        overCardId,
-        active,
-        over,
-        activeColumn,
-        activeDraggingCardId,
-        activeDraggingCardData
-      )
+
     }
   }
 
@@ -167,15 +159,7 @@ function BoardContent({ board }) {
       // lý do dùng oldColumnWhenDraggingCard ?? mà ko phải activeColumn (state của card bị cập nhật)
       if (oldColumnWhenDraggingCard._id !== overColumn._id) {
         // Kéo card qua 2 column khác nhau
-        moveCardBetweenDifferentColumns(
-          overColumn,
-          overCardId,
-          active,
-          over,
-          activeColumn,
-          activeDraggingCardId,
-          activeDraggingCardData
-        )
+
       } else {
         // Kéo card trong 1 column
         const oldCardIndex = oldColumnWhenDraggingCard?.cards?.findIndex(c => c._id === activeDragItemId)

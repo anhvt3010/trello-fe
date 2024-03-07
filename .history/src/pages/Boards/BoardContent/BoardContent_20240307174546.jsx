@@ -167,7 +167,7 @@ function BoardContent({ board }) {
       // lý do dùng oldColumnWhenDraggingCard ?? mà ko phải activeColumn (state của card bị cập nhật)
       if (oldColumnWhenDraggingCard._id !== overColumn._id) {
         // Kéo card qua 2 column khác nhau
-        moveCardBetweenDifferentColumns(
+        moveCardBetweenDifferentColumns = (
           overColumn,
           overCardId,
           active,
