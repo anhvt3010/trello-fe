@@ -59,15 +59,9 @@ export const mockData = {
         _id: 'column-id-04',
         boardId: 'board-id-01',
         title: 'Test Column 04',
-        cardOrderIds: ['column-id-04-placeholder-card'],
+        cardOrderIds: ['card-id-11', 'card-id-12', 'card-id-13'],
         cards: [
-          {
-            _id: 'column-id-04-placeholder-card',
-            boardId: 'board-id-01',
-            columnId: 'column-id-03',
-            FE_Placeholder: true
-          }
-        ]
+          
       }
     ]
   }

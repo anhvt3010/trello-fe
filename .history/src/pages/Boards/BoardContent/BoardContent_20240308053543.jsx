@@ -80,7 +80,7 @@ function BoardContent({ board }) {
 
         // Thêm placeholder card nếu kéo card cuối cùng đi
         if (isEmpty(nextActiveColumn.cards)) {
-          nextActiveColumn.cards = [generatePlaceholderCard(nextActiveColumn)]
+          nextActiveColumn.cards = [generatePlaceholderCard(nextActiveColumn)] 
         }
 
         // Cập nhật lại mảng cardOrderIds
@@ -96,9 +96,6 @@ function BoardContent({ board }) {
         }
         // Tiếp theo là thêm cái card đang kéo vào overColumn theo vị trí index mới
         nextOverColumn.cards = nextOverColumn.cards.toSpliced(newCardIndex, 0, rebuild_activeDraggingCardData)
-
-        // Xóa placeholder card khi column có card
-        nextOverColumn.cards = nextOverColumn.cards.filter(card => !card.FE_Placeholder)
 
         // Cập nhật lại mảng cardOrderIds
         nextOverColumn.cardOrderIds = nextOverColumn.cards.map(card => card._id)
