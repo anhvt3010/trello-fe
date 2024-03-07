@@ -1,12 +1,12 @@
 import Box from '@mui/material/Box'
 import ListColumns from './ListColumns/ListColumns'
 import { mapOrder } from '~/utils/sorts'
-import { DndContext, DragOverlay, MouseSensor, TouchSensor, closestCorners, defaultDropAnimationSideEffects, getFirstCollision, pointerWithin, useSensor, useSensors } from '@dnd-kit/core'
+import { DndContext, DragOverlay, MouseSensor, TouchSensor, closestCenter, closestCorners, defaultDropAnimationSideEffects, getFirstCollision, pointerWithin, rectIntersection, useSensor, useSensors } from '@dnd-kit/core'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { arrayMove } from '@dnd-kit/sortable'
 import Column from './ListColumns/Column/Column'
 import Card from './ListColumns/Column/ListCards/Card/Card'
-import { cloneDeep } from 'lodash'
+import { cloneDeep, over } from 'lodash'
 
 const ACTIVE_DRAG_ITEM_TYPE = {
   COLUMN: 'ACTIVE_DRAG_ITEM_TYPE_COLUMN',
@@ -228,24 +228,20 @@ function BoardContent({ board }) {
     }
     // Tìm các điểm giao nhau, ca chạm - intersections với con trỏ
     const pointerIntersections = pointerWithin(args)
-    if (!pointerIntersections?.length) return
     // Thuật toán phát hiện va chạm trả về 1 mảng các va chạm
-    // const intersections = !!pointerIntersections?.length
-    //   ? pointerIntersections
-    //   : rectIntersection(args)
+    const intersections = !!pointerIntersections?.length
+      ? pointerIntersections
+      : rectIntersection(args)
     // Tìm overId đầu tiên trong intersection
-    // let overId = getFirstCollision(intersections, 'id')
-    let overId = getFirstCollision(pointerIntersections, 'id')
+    let overId = getFirstCollision(intersections, 'id')
 
     if (overId) {
       const checkColumn = orderedColumns.find(column => column._id === overId)
       if (checkColumn) {
-        overId = closestCorners({
+        overId = closestCenter({
           ...args,
-          droppableContainers: args.droppableContainers.filter(container => {
-            return container.id !== overId && checkColumn?.cardOrderIds?.includes(container.id)
-          })
-        })[0]?.id
+          droppableContainers: args.droppableContainers.filter(container => container.id !== overId && checkColumn?.card)
+        })
       }
 
       lastOverId.current = overId

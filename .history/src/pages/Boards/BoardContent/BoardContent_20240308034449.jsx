@@ -1,8 +1,8 @@
 import Box from '@mui/material/Box'
 import ListColumns from './ListColumns/ListColumns'
 import { mapOrder } from '~/utils/sorts'
-import { DndContext, DragOverlay, MouseSensor, TouchSensor, closestCorners, defaultDropAnimationSideEffects, getFirstCollision, pointerWithin, useSensor, useSensors } from '@dnd-kit/core'
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { DndContext, DragOverlay, MouseSensor, TouchSensor, closestCorners, defaultDropAnimationSideEffects, useSensor, useSensors } from '@dnd-kit/core'
+import { useEffect, useState } from 'react'
 import { arrayMove } from '@dnd-kit/sortable'
 import Column from './ListColumns/Column/Column'
 import Card from './ListColumns/Column/ListCards/Card/Card'
@@ -38,8 +38,6 @@ function BoardContent({ board }) {
   const [activeDragItemType, setActiveDragItemType] = useState([null])
   const [activeDragItemData, setActiveDragItemData] = useState([null])
   const [oldColumnWhenDraggingCard, setOldColumnWhenDraggingCard] = useState([null])
-  // Điểm va chạm cuối cùng
-  const lastOverId = useRef(null)
 
   useEffect(() => {
     setOrderedColumns(mapOrder(board?.columns, board?.columnOrderIds, '_id'))
@@ -222,38 +220,7 @@ function BoardContent({ board }) {
     })
   }
 
-  const collisionDetectionStrategy = useCallback((args) => {
-    if (activeDragItemType === ACTIVE_DRAG_ITEM_TYPE.COLUMN) {
-      return closestCorners({ ...args })
-    }
-    // Tìm các điểm giao nhau, ca chạm - intersections với con trỏ
-    const pointerIntersections = pointerWithin(args)
-    if (!pointerIntersections?.length) return
-    // Thuật toán phát hiện va chạm trả về 1 mảng các va chạm
-    // const intersections = !!pointerIntersections?.length
-    //   ? pointerIntersections
-    //   : rectIntersection(args)
-    // Tìm overId đầu tiên trong intersection
-    // let overId = getFirstCollision(intersections, 'id')
-    let overId = getFirstCollision(pointerIntersections, 'id')
-
-    if (overId) {
-      const checkColumn = orderedColumns.find(column => column._id === overId)
-      if (checkColumn) {
-        overId = closestCorners({
-          ...args,
-          droppableContainers: args.droppableContainers.filter(container => {
-            return container.id !== overId && checkColumn?.cardOrderIds?.includes(container.id)
-          })
-        })[0]?.id
-      }
-
-      lastOverId.current = overId
-      return [{ id: overId }]
-    }
-
-    return lastOverId.current ? [{ id: lastOverId.current }] : []
-  }, [activeDragItemType, orderedColumns])
+  const collisionDetectionStrategy
 
   return (
     <DndContext
