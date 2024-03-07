@@ -139,23 +139,12 @@ function BoardContent({ board }) {
       // Nếu không tồn tại 1 trong 2 column thì không làm gì hết
       if (!activeColumn || !overColumn) return
 
-      // lý do dùng oldColumnWhenDraggingCard ?? mà ko phải activeColumn (state của card bị cập nhật)
+      // Kéo card qua 2 column khác nhau
+      // lý do dùng oldColumnWhenDraggingCard ?? mà ko phải 
       if (oldColumnWhenDraggingCard._id !== overColumn._id) {
-        // Kéo card qua 2 column khác nhau
+        console.log('keo tha card giua 2 column khac nhau')
       } else {
-        // Kéo card trong 1 column
-        const oldCardIndex = oldColumnWhenDraggingCard?.cards?.findIndex(c => c._id === activeDragItemId)
-        const newCardIndex = overColumn?.cards?.findIndex(c => c._id === overCardId)
-
-        const dndOrderedCards = arrayMove(oldColumnWhenDraggingCard?.cards, oldCardIndex, newCardIndex)
-
-        setOrderedColumns(prevColumns => {
-          const nextColumns = cloneDeep(prevColumns)
-          const targetColumn = nextColumns.find(column => column._id === overColumn._id)
-          targetColumn.cards = dndOrderedCards
-          targetColumn.cardOrderIds = dndOrderedCards.map(card => card._id)
-          return nextColumns
-        })
+        console.log('keo tha card trong 1 column')
       }
     }
 
@@ -163,11 +152,11 @@ function BoardContent({ board }) {
       // Vị trí sau kéo thả khác vị trí ban đầu
       if (active.id !== over.id) {
         // Lấy vị trí cũ từ active
-        const oldColumnIndex = orderedColumns.findIndex(c => c._id === active.id)
+        const oldIndex = orderedColumns.findIndex(c => c._id === active.id)
         // Lấy vị trí mới từ over
-        const newColumnIndex = orderedColumns.findIndex(c => c._id === over.id)
+        const newIndex = orderedColumns.findIndex(c => c._id === over.id)
         // Cập nhật columnOrderIds: Sắp xếp lại mảng columns
-        const dndOrderedColumns = arrayMove(orderedColumns, oldColumnIndex, newColumnIndex)
+        const dndOrderedColumns = arrayMove(orderedColumns, oldIndex, newIndex)
 
         setOrderedColumns(dndOrderedColumns)
       }

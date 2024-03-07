@@ -149,13 +149,7 @@ function BoardContent({ board }) {
 
         const dndOrderedCards = arrayMove(oldColumnWhenDraggingCard?.cards, oldCardIndex, newCardIndex)
 
-        setOrderedColumns(prevColumns => {
-          const nextColumns = cloneDeep(prevColumns)
-          const targetColumn = nextColumns.find(column => column._id === overColumn._id)
-          targetColumn.cards = dndOrderedCards
-          targetColumn.cardOrderIds = dndOrderedCards.map(card => card._id)
-          return nextColumns
-        })
+        setOrderedColumns
       }
     }
 

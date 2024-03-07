@@ -7,6 +7,7 @@ import { arrayMove } from '@dnd-kit/sortable'
 import Column from './ListColumns/Column/Column'
 import Card from './ListColumns/Column/ListCards/Card/Card'
 import { cloneDeep } from 'lodash'
+import { preview } from 'vite'
 
 const ACTIVE_DRAG_ITEM_TYPE = {
   COLUMN: 'ACTIVE_DRAG_ITEM_TYPE_COLUMN',
@@ -145,13 +146,13 @@ function BoardContent({ board }) {
       } else {
         // Kéo card trong 1 column
         const oldCardIndex = oldColumnWhenDraggingCard?.cards?.findIndex(c => c._id === activeDragItemId)
-        const newCardIndex = overColumn?.cards?.findIndex(c => c._id === overCardId)
+        const newCardIndex = overColumn?.cards?.findIndex(column => column._id === overCardId)
 
         const dndOrderedCards = arrayMove(oldColumnWhenDraggingCard?.cards, oldCardIndex, newCardIndex)
 
         setOrderedColumns(prevColumns => {
           const nextColumns = cloneDeep(prevColumns)
-          const targetColumn = nextColumns.find(column => column._id === overColumn._id)
+          const targetColumn = nextColumns.find(c => c._id === overColumn._id)
           targetColumn.cards = dndOrderedCards
           targetColumn.cardOrderIds = dndOrderedCards.map(card => card._id)
           return nextColumns
