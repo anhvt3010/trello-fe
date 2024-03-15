@@ -15,7 +15,7 @@ function ListColumns({ columns }) {
 
   const addNewColumn = () => {
     if (!newColumnTitle) {
-      toast.error('Please enter column title')
+      toast.error('Plea')
       return
     }
     // goi api

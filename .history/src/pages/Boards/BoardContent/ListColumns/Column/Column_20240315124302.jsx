@@ -42,7 +42,7 @@ function Column({ column }) {
   const addNewCard = () => {
     if (!newCardTitle) {
       toast.error('Please enter card title', {
-        position: 'bottom-right'
+        position:'bott'
       })
       return
     }

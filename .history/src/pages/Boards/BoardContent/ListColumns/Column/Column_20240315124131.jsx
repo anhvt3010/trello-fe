@@ -41,9 +41,7 @@ function Column({ column }) {
 
   const addNewCard = () => {
     if (!newCardTitle) {
-      toast.error('Please enter card title', {
-        position: 'bottom-right'
-      })
+      toast.error('Please enter column title')
       return
     }
     // goi api

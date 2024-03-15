@@ -13,11 +13,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <CssVarsProvider theme={theme}>
       <CssBaseline />
       <App />
-      <ToastContainer
-        position='bottom-right'
-        theme='colored'
-        autoClose={3000}
-      />
+      <ToastContainer />
     </CssVarsProvider>
   </React.StrictMode>
 )
