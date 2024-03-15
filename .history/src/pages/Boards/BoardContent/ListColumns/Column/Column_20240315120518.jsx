@@ -159,7 +159,7 @@ function Column({ column }) {
                 type='text'
                 size='small'
                 autoFocus
-                data-no-dnd="true"
+                data-no-dnd=""
                 value={newCardTitle}
                 onChange={(e) => setNewCardTitle(e.target.value)}
                 sx={{
@@ -183,7 +183,6 @@ function Column({ column }) {
                 <Button
                   onClick={addNewCard}
                   variant='contained' color='success' size='small'
-                  data-no-dnd="true"
                   sx={{
                     boxShadow: 'none',
                     border: '0.5px solid',
@@ -193,7 +192,6 @@ function Column({ column }) {
                 >Add</Button>
                 <CloseIcon
                   fontSize='small'
-                  data-no-dnd="true"
                   sx={{
                     color: { color: (theme) => theme.palette.warning.light },
                     cursor: 'pointer'
