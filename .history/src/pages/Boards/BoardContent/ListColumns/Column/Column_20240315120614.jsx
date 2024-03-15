@@ -193,7 +193,6 @@ function Column({ column }) {
                 >Add</Button>
                 <CloseIcon
                   fontSize='small'
-                  data-no-dnd="true"
                   sx={{
                     color: { color: (theme) => theme.palette.warning.light },
                     cursor: 'pointer'

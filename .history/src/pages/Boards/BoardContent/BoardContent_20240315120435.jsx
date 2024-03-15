@@ -17,12 +17,12 @@ const ACTIVE_DRAG_ITEM_TYPE = {
 
 function BoardContent({ board }) {
   // con chuột di chuyển 10px để kích hoạt event, tránh click => kích hoạt
-  const mouseSensor = useSensor(MouseSensor, {
+  const mouseSensor = useSensor(MouseSensoror, {
     activationConstraint: { distance: 10 }
   })
   // nhấn giữ 250ms
   // tolerance là dung sai của cảm ứng (tay, bút cảm ứng, ... => khác nhau)
-  const touchSensor = useSensor(TouchSensor, {
+  const touchSensor = useSensor(TouchSensorsor, {
     activationConstraint: {
       delay: 250,
       tolerance: 5

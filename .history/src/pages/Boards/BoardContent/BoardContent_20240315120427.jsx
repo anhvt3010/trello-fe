@@ -8,7 +8,7 @@ import Column from './ListColumns/Column/Column'
 import Card from './ListColumns/Column/ListCards/Card/Card'
 import { cloneDeep, isEmpty } from 'lodash'
 import { generatePlaceholderCard } from '~/utils/formater'
-import { MouseSensor, TouchSensor } from '~/customLibs/DndKitSensor'
+import { MouseSensor } from '~/customLibs/DndKitSensor'
 
 const ACTIVE_DRAG_ITEM_TYPE = {
   COLUMN: 'ACTIVE_DRAG_ITEM_TYPE_COLUMN',
@@ -17,7 +17,7 @@ const ACTIVE_DRAG_ITEM_TYPE = {
 
 function BoardContent({ board }) {
   // con chuột di chuyển 10px để kích hoạt event, tránh click => kích hoạt
-  const mouseSensor = useSensor(MouseSensor, {
+  const mouseSensor = useSensor(MouseSensoror, {
     activationConstraint: { distance: 10 }
   })
   // nhấn giữ 250ms

@@ -22,7 +22,7 @@ function BoardContent({ board }) {
   })
   // nhấn giữ 250ms
   // tolerance là dung sai của cảm ứng (tay, bút cảm ứng, ... => khác nhau)
-  const touchSensor = useSensor(TouchSensor, {
+  const touchSensor = useSensor(TouchSensorsor, {
     activationConstraint: {
       delay: 250,
       tolerance: 5
