@@ -22,6 +22,8 @@ function Board() {
 
       res.data.columns = mapOrder(res.data.columns, res.data.columnOrderIds, '_id')
 
+      console.log(res.data.columns.find(c => c._id === 'column-id-02')?.cardOrderIds)
+
       // Xu ly keo tha khi column rong
       res.data.columns.forEach(column => {
         if (isEmpty(column.cards)) {
@@ -32,8 +34,8 @@ function Board() {
         }
       })
       setBoard(res.data)
-      console.log(res.data);
     })
+    console.log(board.data)
   }, [])
 
   // Gọi API tạo mới Column và cập nhật lại State Board

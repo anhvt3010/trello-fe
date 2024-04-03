@@ -32,7 +32,6 @@ function Board() {
         }
       })
       setBoard(res.data)
-      console.log(res.data);
     })
   }, [])
 
@@ -106,14 +105,8 @@ function Board() {
 
     // Goi API update card
     movingCardDrifferentColumns({
-      currentCardId,
-      prevColumnId,
-      prevCardOrderIds: dndOrderedColumns.find(c => c._id === prevColumnId)?.cardOrderIds,
-      nextColumnId,
-      nextCardOrderIds: dndOrderedColumns.find(c => c._id === nextColumnId)?.cardOrderIds
+      
     })
-
-    console.log(newBoard)
   }
 
   // Xử lý xóa column và card trong nó

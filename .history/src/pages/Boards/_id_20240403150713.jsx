@@ -32,7 +32,6 @@ function Board() {
         }
       })
       setBoard(res.data)
-      console.log(res.data);
     })
   }, [])
 
@@ -112,8 +111,6 @@ function Board() {
       nextColumnId,
       nextCardOrderIds: dndOrderedColumns.find(c => c._id === nextColumnId)?.cardOrderIds
     })
-
-    console.log(newBoard)
   }
 
   // Xử lý xóa column và card trong nó

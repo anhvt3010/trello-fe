@@ -22,6 +22,7 @@ function Board() {
 
       res.data.columns = mapOrder(res.data.columns, res.data.columnOrderIds, '_id')
 
+      
       // Xu ly keo tha khi column rong
       res.data.columns.forEach(column => {
         if (isEmpty(column.cards)) {
@@ -32,7 +33,6 @@ function Board() {
         }
       })
       setBoard(res.data)
-      console.log(res.data);
     })
   }, [])
 
@@ -112,8 +112,6 @@ function Board() {
       nextColumnId,
       nextCardOrderIds: dndOrderedColumns.find(c => c._id === nextColumnId)?.cardOrderIds
     })
-
-    console.log(newBoard)
   }
 
   // Xử lý xóa column và card trong nó

@@ -115,12 +115,7 @@ function BoardContent({
       }
 
       if (triggerFrom === 'handleDragEnd') {
-        moveCardToDifferentColumn(
-          activeDraggingCardId,
-          oldColumnWhenDraggingCard._id,
-          nextOverColumn._id,
-          nextColumns
-        )
+        moveCardToDifferentColumn(currentCard)
       }
 
       return nextColumns

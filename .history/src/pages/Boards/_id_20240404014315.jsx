@@ -32,9 +32,8 @@ function Board() {
         }
       })
       setBoard(res.data)
-      console.log(res.data);
     })
-  }, [])
+  }, [board])
 
   // Gọi API tạo mới Column và cập nhật lại State Board
   const createNewColumn = async (newColumnData) => {

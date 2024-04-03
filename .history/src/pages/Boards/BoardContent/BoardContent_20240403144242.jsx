@@ -21,7 +21,6 @@ function BoardContent({
   createNewCard,
   moveColumns,
   moveCardsInColumn,
-  moveCardToDifferentColumn,
   deleteColumnDetails
 }) {
   // con chuột di chuyển 10px để kích hoạt event, tránh click => kích hoạt
@@ -115,12 +114,7 @@ function BoardContent({
       }
 
       if (triggerFrom === 'handleDragEnd') {
-        moveCardToDifferentColumn(
-          activeDraggingCardId,
-          oldColumnWhenDraggingCard._id,
-          nextOverColumn._id,
-          nextColumns
-        )
+        console.log();
       }
 
       return nextColumns

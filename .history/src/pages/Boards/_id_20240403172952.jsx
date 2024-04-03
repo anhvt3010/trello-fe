@@ -22,6 +22,8 @@ function Board() {
 
       res.data.columns = mapOrder(res.data.columns, res.data.columnOrderIds, '_id')
 
+      console.log(res.data.columns.find(c => c._id === 'column-id-02')?.cardOrderIds)
+
       // Xu ly keo tha khi column rong
       res.data.columns.forEach(column => {
         if (isEmpty(column.cards)) {
@@ -32,7 +34,6 @@ function Board() {
         }
       })
       setBoard(res.data)
-      console.log(res.data);
     })
   }, [])
 
@@ -103,6 +104,7 @@ function Board() {
     newBoard.columns = dndOrderedColumns
     newBoard.columnOrderIds = dndOrderedColumnsIds
     setBoard(newBoard)
+    console.log(newBoard.columns.find(c => c._id === 'column-id-02')?.cardOrderIds)
 
     // Goi API update card
     movingCardDrifferentColumns({
@@ -112,8 +114,6 @@ function Board() {
       nextColumnId,
       nextCardOrderIds: dndOrderedColumns.find(c => c._id === nextColumnId)?.cardOrderIds
     })
-
-    console.log(newBoard)
   }
 
   // Xử lý xóa column và card trong nó
