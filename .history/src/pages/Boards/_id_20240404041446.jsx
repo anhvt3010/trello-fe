@@ -4,13 +4,12 @@ import BoardBar from '~/pages/Boards/BoardBar/BoardBar'
 import BoardContent from '~/pages/Boards/BoardContent/BoardContent'
 import { useEffect, useState } from 'react'
 import { fetchBoardDetailsAPI, updateBoardDetailsAPI } from '~/apis'
-import { createNewColumnAPI, deleteColumnAPI, movingCardDrifferentColumns, movingCardInColumn } from '~/apis/columnAPI'
+import { createNewColumnAPI, movingCardDrifferentColumns, movingCardInColumn } from '~/apis/columnAPI'
 import { createNewCardAPI } from '~/apis/cardAPI'
 import { isEmpty } from 'lodash'
 import { generatePlaceholderCard } from '~/utils/formater'
 import { mapOrder } from '~/utils/sorts'
 import { Box, CircularProgress, Typography } from '@mui/material'
-import { toast } from 'react-toastify'
 
 function Board() {
   const [board, setBoard] = useState(null)
@@ -62,13 +61,9 @@ function Board() {
     const newBoard = { ...board }
     const columnToUpdate = newBoard.columns.find(column => column._id === createdCard.data.columnId)
     if (columnToUpdate) {
-      if (columnToUpdate.cards.some(card => card.FE_Placeholder)) {
-        columnToUpdate.cards = [createdCard.data]
-        columnToUpdate.cardOrderIds = [createdCard.data._id]
-      } else {
-        columnToUpdate.cards.push(createdCard.data)
-        columnToUpdate.cardOrderIds.push(createdCard.data._id)
-      }
+      if(columnToUpdate.cards)
+      columnToUpdate.cards.push(createdCard.data)
+      columnToUpdate.cardOrderIds.push(createdCard.data._id)
     }
     setBoard(newBoard)
   }
@@ -108,7 +103,7 @@ function Board() {
     newBoard.columnOrderIds = dndOrderedColumnsIds
     setBoard(newBoard)
 
-    // Goi API
+    // Goi API update card
     let prevCardOrderIds = dndOrderedColumns.find(c => c._id === prevColumnId)?.cardOrderIds
     if (prevCardOrderIds[0].includes('placeholder-card')) prevCardOrderIds = []
 
@@ -123,16 +118,8 @@ function Board() {
 
   // Xử lý xóa column và card trong nó
   const deleteColumnDetails = (columnId) => {
-    // Update du lieu cho Board
-    const newBoard = { ...board }
-    newBoard.columns = newBoard.columns.filter(c => c._id !== columnId)
-    newBoard.columnOrderIds = newBoard.columnOrderIds.filter(_id => _id !== columnId)
+    // console.log(columnId)
 
-    setBoard(newBoard)
-    // Goi API
-    deleteColumnAPI(columnId).then(res => {
-      toast.success(res?.message)
-    })
   }
 
   if (!board) {

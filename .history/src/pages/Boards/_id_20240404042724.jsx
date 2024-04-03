@@ -10,7 +10,6 @@ import { isEmpty } from 'lodash'
 import { generatePlaceholderCard } from '~/utils/formater'
 import { mapOrder } from '~/utils/sorts'
 import { Box, CircularProgress, Typography } from '@mui/material'
-import { toast } from 'react-toastify'
 
 function Board() {
   const [board, setBoard] = useState(null)
@@ -124,15 +123,9 @@ function Board() {
   // Xử lý xóa column và card trong nó
   const deleteColumnDetails = (columnId) => {
     // Update du lieu cho Board
-    const newBoard = { ...board }
-    newBoard.columns = newBoard.columns.filter(c => c._id !== columnId)
-    newBoard.columnOrderIds = newBoard.columnOrderIds.filter(_id => _id !== columnId)
 
-    setBoard(newBoard)
     // Goi API
-    deleteColumnAPI(columnId).then(res => {
-      toast.success(res?.message)
-    })
+    deleteColumnAPI(columnId).then
   }
 
   if (!board) {

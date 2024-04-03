@@ -10,7 +10,6 @@ import { isEmpty } from 'lodash'
 import { generatePlaceholderCard } from '~/utils/formater'
 import { mapOrder } from '~/utils/sorts'
 import { Box, CircularProgress, Typography } from '@mui/material'
-import { toast } from 'react-toastify'
 
 function Board() {
   const [board, setBoard] = useState(null)
@@ -131,7 +130,8 @@ function Board() {
     setBoard(newBoard)
     // Goi API
     deleteColumnAPI(columnId).then(res => {
-      toast.success(res?.message)
+      console.log('🚀 ~ deleteColumnAPI ~ res:', res)
+
     })
   }
 
