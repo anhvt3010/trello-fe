@@ -104,13 +104,17 @@ function Board() {
     setBoard(newBoard)
 
     // Goi API update card
+    let prevCardOrderIds = dndOrderedColumns.find(c => c._id === prevColumnId)?.cardOrderIds
+    
+    if()
     movingCardDrifferentColumns({
       currentCardId,
       prevColumnId,
-      prevCardOrderIds: dndOrderedColumns.find(c => c._id === prevColumnId)?.cardOrderIds,
+      prevCardOrderIds,
       nextColumnId,
       nextCardOrderIds: dndOrderedColumns.find(c => c._id === nextColumnId)?.cardOrderIds
     })
+
   }
 
   // Xử lý xóa column và card trong nó
