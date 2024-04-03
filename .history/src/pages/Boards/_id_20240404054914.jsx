@@ -131,7 +131,7 @@ function Board() {
     setBoard(newBoard)
     // Goi API
     deleteColumnAPI(columnId).then(res => {
-      toast.success(res?.message)
+      toast.
     })
   }
 
