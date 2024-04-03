@@ -111,6 +111,7 @@ function Board() {
       nextColumnId,
       nextCardOrderIds: dndOrderedColumns.find(c => c._id === nextColumnId)?.cardOrderIds
     })
+git status
   }
 
   // Xử lý xóa column và card trong nó
