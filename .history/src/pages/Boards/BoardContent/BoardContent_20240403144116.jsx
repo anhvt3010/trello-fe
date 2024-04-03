@@ -21,7 +21,6 @@ function BoardContent({
   createNewCard,
   moveColumns,
   moveCardsInColumn,
-  moveCardToDifferentColumn,
   deleteColumnDetails
 }) {
   // con chuột di chuyển 10px để kích hoạt event, tránh click => kích hoạt
@@ -113,16 +112,6 @@ function BoardContent({
         // Cập nhật lại mảng cardOrderIds
         nextOverColumn.cardOrderIds = nextOverColumn.cards.map(card => card._id)
       }
-
-      if (triggerFrom === 'handleDragEnd') {
-        moveCardToDifferentColumn(
-          activeDraggingCardId,
-          oldColumnWhenDraggingCard._id,
-          nextOverColumn._id,
-          nextColumns
-        )
-      }
-
       return nextColumns
     })
   }
@@ -206,8 +195,8 @@ function BoardContent({
           over,
           activeColumn,
           activeDraggingCardId,
-          activeDraggingCardData,
-          'handleDragEnd'
+          activeDraggingCardData
+          ,''
         )
       } else {
         // Kéo card trong 1 column

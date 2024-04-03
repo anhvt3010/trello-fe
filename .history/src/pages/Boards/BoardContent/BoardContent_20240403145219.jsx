@@ -118,8 +118,7 @@ function BoardContent({
         moveCardToDifferentColumn(
           activeDraggingCardId,
           oldColumnWhenDraggingCard._id,
-          nextOverColumn._id,
-          nextColumns
+          nextOverColumn._id
         )
       }
 

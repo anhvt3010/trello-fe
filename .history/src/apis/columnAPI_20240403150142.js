@@ -11,7 +11,7 @@ export const movingCardInColumn = async (columnId, updateData) => {
   return response.data
 }
 
-export const movingCardDrifferentColumns = async (updateData) => {
-  const response = await axios.put(`${API_ROOT}columns/moving-different-columns`, updateData)
+export const movingCardDrifferentColumns = async (columnId, updateData) => {
+  const response = await axios.put(`${API_ROOT}columns/${columnId}`, updateData)
   return response.data
 }

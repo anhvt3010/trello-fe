@@ -119,7 +119,7 @@ function BoardContent({
           activeDraggingCardId,
           oldColumnWhenDraggingCard._id,
           nextOverColumn._id,
-          nextColumns
+          dnd
         )
       }
 

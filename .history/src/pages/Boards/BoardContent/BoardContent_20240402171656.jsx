@@ -21,7 +21,6 @@ function BoardContent({
   createNewCard,
   moveColumns,
   moveCardsInColumn,
-  moveCardToDifferentColumn,
   deleteColumnDetails
 }) {
   // con chuột di chuyển 10px để kích hoạt event, tránh click => kích hoạt
@@ -52,7 +51,7 @@ function BoardContent({
   const lastOverId = useRef(null)
 
   useEffect(() => {
-    setOrderedColumns(board.columns)
+    setOrderedColumns(board?.columns)
   }, [board])
 
   const findColumnByCardId = (cardId) => {
@@ -67,8 +66,7 @@ function BoardContent({
     over,
     activeColumn,
     activeDraggingCardId,
-    activeDraggingCardData,
-    triggerFrom
+    activeDraggingCardData
   ) => {
     setOrderedColumns(prevColumns => {
       // Tìm vị trí index của cái overCard trong Column được kéo đến
@@ -113,16 +111,6 @@ function BoardContent({
         // Cập nhật lại mảng cardOrderIds
         nextOverColumn.cardOrderIds = nextOverColumn.cards.map(card => card._id)
       }
-
-      if (triggerFrom === 'handleDragEnd') {
-        moveCardToDifferentColumn(
-          activeDraggingCardId,
-          oldColumnWhenDraggingCard._id,
-          nextOverColumn._id,
-          nextColumns
-        )
-      }
-
       return nextColumns
     })
   }
@@ -170,8 +158,7 @@ function BoardContent({
         over,
         activeColumn,
         activeDraggingCardId,
-        activeDraggingCardData,
-        'handleDragOver'
+        activeDraggingCardData
       )
     }
   }
@@ -206,8 +193,7 @@ function BoardContent({
           over,
           activeColumn,
           activeDraggingCardId,
-          activeDraggingCardData,
-          'handleDragEnd'
+          activeDraggingCardData
         )
       } else {
         // Kéo card trong 1 column

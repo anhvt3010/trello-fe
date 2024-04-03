@@ -13,5 +13,6 @@ export const movingCardInColumn = async (columnId, updateData) => {
 
 export const movingCardDrifferentColumns = async (updateData) => {
   const response = await axios.put(`${API_ROOT}columns/moving-different-columns`, updateData)
-  return response.data
+  console.log(updateData);
+  return
 }

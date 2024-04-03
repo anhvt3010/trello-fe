@@ -32,7 +32,6 @@ function Board() {
         }
       })
       setBoard(res.data)
-      console.log(res.data);
     })
   }, [])
 

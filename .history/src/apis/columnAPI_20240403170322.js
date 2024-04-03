@@ -8,10 +8,11 @@ export const createNewColumnAPI = async (newColumnData) => {
 
 export const movingCardInColumn = async (columnId, updateData) => {
   const response = await axios.put(`${API_ROOT}columns/${columnId}`, updateData)
-  return response.data
+  return response
 }
 
 export const movingCardDrifferentColumns = async (updateData) => {
-  const response = await axios.put(`${API_ROOT}columns/moving-different-columns`, updateData)
-  return response.data
+  // const response = await axios.put(`${API_ROOT}columns/moving-different-columns`, updateData)
+  console.log(updateData);
+  return
 }

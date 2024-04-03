@@ -5,7 +5,7 @@ import BoardContent from '~/pages/Boards/BoardContent/BoardContent'
 import { useEffect, useState } from 'react'
 import { fetchBoardDetailsAPI, updateBoardDetailsAPI } from '~/apis'
 import { mockData } from '~/apis/mock-data'
-import { createNewColumnAPI, movingCardDrifferentColumns, movingCardInColumn } from '~/apis/columnAPI'
+import { createNewColumnAPI, movingCardInColumn } from '~/apis/columnAPI'
 import { createNewCardAPI } from '~/apis/cardAPI'
 import { isEmpty } from 'lodash'
 import { generatePlaceholderCard } from '~/utils/formater'
@@ -32,7 +32,6 @@ function Board() {
         }
       })
       setBoard(res.data)
-      console.log(res.data);
     })
   }, [])
 
@@ -105,15 +104,7 @@ function Board() {
     setBoard(newBoard)
 
     // Goi API update card
-    movingCardDrifferentColumns({
-      currentCardId,
-      prevColumnId,
-      prevCardOrderIds: dndOrderedColumns.find(c => c._id === prevColumnId)?.cardOrderIds,
-      nextColumnId,
-      nextCardOrderIds: dndOrderedColumns.find(c => c._id === nextColumnId)?.cardOrderIds
-    })
-
-    console.log(newBoard)
+    movingCardDrifferentColumns
   }
 
   // Xử lý xóa column và card trong nó
