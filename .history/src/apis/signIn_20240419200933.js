@@ -1,6 +1,4 @@
-import axios from 'axios'
 import axiosInstance from '~/service/axiosConfig'
-import { API_ROOT } from '~/utils/constants'
 
 export const login = async (AuthRequest) => {
   const response = await axiosInstance.post('auth/token', AuthRequest)
@@ -8,6 +6,6 @@ export const login = async (AuthRequest) => {
 }
 
 export const logout = async (LogoutRequest) => {
-  const response = await axios.post(`${API_ROOT}auth/logout`, LogoutRequest)
+  const response = await axiosInstance.post('auth/token', AuthRequest)
   return response?.data
 }

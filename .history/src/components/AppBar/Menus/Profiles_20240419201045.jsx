@@ -27,11 +27,8 @@ export default function Profiles() {
   }
 
   const handleLogout = async () => {
-    const LogoutRequest = {
-      token: localStorage.getItem('token')
-    }
-    await logout(LogoutRequest)
     localStorage.removeItem('token')
+    await logout
     navigate('/sign-in')
     toast.success('Log out success')
   }

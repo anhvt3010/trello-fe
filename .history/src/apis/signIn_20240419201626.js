@@ -8,6 +8,6 @@ export const login = async (AuthRequest) => {
 }
 
 export const logout = async (LogoutRequest) => {
-  const response = await axios.post(`${API_ROOT}auth/logout`, LogoutRequest)
+  const response = await axios.post(`${API_ROOT}`, LogoutRequest)
   return response?.data
 }

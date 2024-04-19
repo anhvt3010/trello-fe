@@ -12,7 +12,6 @@ import Tooltip from '@mui/material/Tooltip'
 import * as React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import { logout } from '~/apis/signIn'
 
 export default function Profiles() {
   const [anchorEl, setAnchorEl] = React.useState(null)
@@ -26,12 +25,9 @@ export default function Profiles() {
     setAnchorEl(null)
   }
 
-  const handleLogout = async () => {
-    const LogoutRequest = {
-      token: localStorage.getItem('token')
-    }
-    await logout(LogoutRequest)
+  const handleLogout = as () => {
     localStorage.removeItem('token')
+    
     navigate('/sign-in')
     toast.success('Log out success')
   }
