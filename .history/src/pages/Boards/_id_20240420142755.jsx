@@ -23,6 +23,7 @@ function Board() {
         const decoded = jwtDecode(localStorage.getItem('token'))
         return decoded.sub
       } catch (error) {
+        console.error('Lỗi khi giải mã token:', error)
         return null
       }
     }

@@ -22,7 +22,7 @@ import { CircularProgress } from '@mui/material'
 
 const defaultTheme = createTheme()
 
-export default function SignIn() {
+export default function 2SignIn() {
 
   const [showPassword, setShowPassword] = React.useState(false)
   const [loading, setLoading] = React.useState(false)
@@ -53,7 +53,7 @@ export default function SignIn() {
       try {
         const trimmedValues = {
           username: values.username.trim(),
-          password: values.password.trim()
+          password: values.password.trim(),
         }
 
         const token = await login(trimmedValues)

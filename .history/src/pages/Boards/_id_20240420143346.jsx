@@ -27,7 +27,7 @@ function Board() {
       }
     }
 
-    fetchBoardDetailsAPI(getUsername()).then((res) => {
+    fetchBoardDetailsAPI(null).then((res) => {
 
       res.data.columns = mapOrder(res.data.columns, res.data.columnOrderIds, '_id')
 

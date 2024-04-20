@@ -11,23 +11,26 @@ import { generatePlaceholderCard } from '~/utils/formater'
 import { mapOrder } from '~/utils/sorts'
 import { Box, CircularProgress, Typography } from '@mui/material'
 import { toast } from 'react-toastify'
-import { jwtDecode } from 'jwt-decode'
-
+import jwtDecode from 'jwt-decode'
 
 function Board() {
   const [board, setBoard] = useState(null)
 
+  // sử dụng react-router-dom để lấy boardId từ URL về
   useEffect(() => {
+    const username = 'tanh3312'
+
     const getUsername = () => {
       try {
         const decoded = jwtDecode(localStorage.getItem('token'))
-        return decoded.sub
+        return decoded.sub // Trả về giá trị của claim 'sub'
       } catch (error) {
-        return null
+        console.error('Lỗi khi giải mã token:', error)
+        return null; // Trả về null nếu có lỗi xảy ra
       }
     }
 
-    fetchBoardDetailsAPI(getUsername()).then((res) => {
+    fetchBoardDetailsAPI(userId).then((res) => {
 
       res.data.columns = mapOrder(res.data.columns, res.data.columnOrderIds, '_id')
 

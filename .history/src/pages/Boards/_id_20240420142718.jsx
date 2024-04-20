@@ -16,18 +16,23 @@ import { jwtDecode } from 'jwt-decode'
 
 function Board() {
   const [board, setBoard] = useState(null)
-
+  const userId = 'tanh3312'
+  // sử dụng react-router-dom để lấy boardId từ URL về
   useEffect(() => {
     const getUsername = () => {
       try {
         const decoded = jwtDecode(localStorage.getItem('token'))
-        return decoded.sub
+        return decoded.sub // Trả về giá trị của claim 'sub'
       } catch (error) {
+        console.error('Lỗi khi giải mã token:', error)
         return null
       }
     }
 
-    fetchBoardDetailsAPI(getUsername()).then((res) => {
+    const username = getUsername()
+    console.log(username);
+
+    fetchBoardDetailsAPI(userId).then((res) => {
 
       res.data.columns = mapOrder(res.data.columns, res.data.columnOrderIds, '_id')
 

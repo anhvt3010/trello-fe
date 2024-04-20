@@ -59,7 +59,7 @@ export default function SignIn() {
         const token = await login(trimmedValues)
         toast.success('Sign In successfull !')
         localStorage.setItem('token', token.data.token)
-        navigate('/')
+        navigate('/', { state: { trimmedValue } })
         resetForm()
       } catch (error) {
         // Lỗi đã được xử lý trong interceptor của axios, không cần xử lý thêm ở đây

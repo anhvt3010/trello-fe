@@ -29,7 +29,7 @@ function Board() {
 
     fetchBoardDetailsAPI(getUsername()).then((res) => {
 
-      res.data.columns = mapOrder(res.data.columns, res.data.columnOrderIds, '_id')
+      res.data?.columns = mapOrder(res.data.columns, res.data.columnOrderIds, '_id')
 
       // Xu ly keo tha khi column rong
       res.data.columns.forEach(column => {
