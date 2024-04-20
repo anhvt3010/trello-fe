@@ -2,7 +2,7 @@ import axiosInstance from '~/service/axiosConfig'
 import { API_ROOT } from '~/utils/constants'
 
 export const fetchBoardDetailsAPI = async (userId) => {
-  const response = await axiosInstance.get(`boards/by-user/${userId}`)
+  const response = await axiosInstance.get(`boards/${boardId}`)
   return response.data
 }
 

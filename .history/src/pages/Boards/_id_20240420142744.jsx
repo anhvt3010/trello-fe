@@ -21,8 +21,9 @@ function Board() {
     const getUsername = () => {
       try {
         const decoded = jwtDecode(localStorage.getItem('token'))
-        return decoded.sub
+        return decoded.sub // Trả về giá trị của claim 'sub'
       } catch (error) {
+        console.error('Lỗi khi giải mã token:', error)
         return null
       }
     }

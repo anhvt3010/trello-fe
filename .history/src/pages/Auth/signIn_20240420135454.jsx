@@ -53,7 +53,7 @@ export default function SignIn() {
       try {
         const trimmedValues = {
           username: values.username.trim(),
-          password: values.password.trim()
+          password: values.password.trim(),
         }
 
         const token = await login(trimmedValues)
